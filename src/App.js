@@ -13,9 +13,7 @@ function App() {
   return (
     <BrowserRouter>
       <AuthProvider>
-        <NewsProvider>
           <AppRouter />
-        </NewsProvider>
       </AuthProvider>
     </BrowserRouter>
   );
