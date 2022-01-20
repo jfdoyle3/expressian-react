@@ -2,32 +2,33 @@ import React, {useContext, useEffect, useState} from 'react';
 import {AuthContext} from '../Providers/AuthProvider';
 import Spinner from '../faCommon/Spinner';
 import axios from 'axios';
-import Developer from './Developer';
+import Customer from './Customer';
 
-const Developers = (props) => {
+const Customers = (props) => {
   const [auth] = useContext(AuthContext)
-  const [developers, setDevelopers] = useState([]);
+  const [Customers, setCustomers] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // use effect to pull list of developers
-  // use state to store the developers
-  // neet bearer token to get the developer list.
+  // use effect to pull list of Customers
+  // use state to store the Customers
+  // neet bearer token to get the Customer list.
 
   useEffect(() => {
-    const _getDevelopers = async () => {
+    const _getCustomers = async () => {
       try {
 
         const res = await axios.get(
-          'http://localhost:8080/api/developers',
+          'http://localhost:8080/api/customers/self',
           {
             headers: {
               "Authorization": `Bearer ${auth.token}`
             }
           }
         )
-        console.log(res.data)
+      
         setLoading(false);
-        setDevelopers(res.data);
+        console.log(res.data);
+        setCustomers(res.data);
       } catch (err) {
         console.log(err.response.message)
       }
@@ -35,11 +36,11 @@ const Developers = (props) => {
 
     }
     setLoading(true);
-    _getDevelopers();
+    _getCustomers();
   },[auth.token])
 
-  const displayDevelopers = () => {
-    return developers.map(dev => <Developer developer={dev} key={dev.id}/>)
+  const displayCustomers = () => {
+    return Customers.map(dev => <Customer Customer={dev} key={dev.id}/>)
   }
 
   return (
@@ -50,14 +51,14 @@ const Developers = (props) => {
       alignItems: 'center',
       minHeight: '100vh',
     }}>
-      <h1>Developers</h1>
+      <h1>Customers</h1>
       {loading ? 
         <Spinner /> 
       :
-        displayDevelopers()
+        displayCustomers()
       }
     </div>
   )
 }
 
-export default Developers;
+export default Customers;

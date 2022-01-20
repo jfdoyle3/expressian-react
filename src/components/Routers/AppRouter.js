@@ -2,10 +2,9 @@ import React from 'react';
 import {Route, Routes} from 'react-router-dom';
 import Navbar from "../Navbar/NavBar";
 import Home from "../Home/Home";
-import News from '../News/News';
 import Login from '../Auth/Login';
 import Register from '../Auth/Register';
-import Developers from '../Developers/Developers';
+import Customers from '../Customers/Customers';
 
 const AppRouter = () => {
 
@@ -15,10 +14,9 @@ const AppRouter = () => {
       <div style={{ marginTop: "75px", width: "100%"}}>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/news" element={<News />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/developers" element={<Developers />} />
+          <Route path="/Customers" element={<Customers />} />
         </Routes>
       </div>
     </div>

@@ -23,7 +23,7 @@ const NavBar = (props) => {
         alignItems: 'center',
         padding: '0em 1.2em'
       }}>
-        <h1 style={{color: "lightgreen"}}>DevConnector</h1>
+        <h1 style={{color: "lightgreen"}}>Expressian Car Rental</h1>
       </div>
         <div style={{
           flex: 1,
@@ -38,9 +38,8 @@ const NavBar = (props) => {
           justifyContent: 'flex-end'
         }}>
           <NavButton to="/" label="home" />
-          <NavButton to="/news" label="news" />
           {auth.token ? (
-            <NavButton to="/developers" label="Developers" />
+            <NavButton to="/Customers" label="Customers" />
           ) : (
             <Fragment>
               <NavButton to="/login" label="login" />

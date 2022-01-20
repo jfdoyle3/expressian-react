@@ -53,7 +53,7 @@ const Register = () => {
         data
       )
       // alert(res.data.token);
-      createDeveloper(data, res.data.token);
+      createCustomer(data, res.data.token);
     } catch (err) {
       alert (err.response.data.message);
     }
@@ -63,7 +63,7 @@ const Register = () => {
     data.email = data.username;
     try {
       const res = await axios.post(
-        "http://localhost:8080/api/developers", 
+        "http://localhost:8080/api/Customers", 
         data,
         {
           headers: {
@@ -74,7 +74,7 @@ const Register = () => {
       console.log(res.data);
       setAuth({token, name: res.data.name});
       alert(res.data.id);
-      navigate('/developers')
+      navigate('/Customers')
     } catch (err) {
       alert (err.response.data.message);
     }
