@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 const AuthContext = React.createContext([]);
 
 const AuthProvider = (props) => {
-  const [auth, setAuth] = useState({token: null, name: null, role: null});
+  const [auth, setAuth] = useState({token: null, name: null, role: []});
 
   //if this was a data collecting provider 
   //the use effect method would go here

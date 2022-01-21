@@ -27,7 +27,6 @@ const Customers = (props) => {
         )
       
         setLoading(false);
-        console.log(res.data);
         setCustomers(res.data);
       } catch (err) {
         console.log(err.response.message)

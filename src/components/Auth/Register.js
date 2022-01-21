@@ -59,7 +59,7 @@ const Register = () => {
     }
   }
 
-  const createDeveloper = async (data, token) => {
+  const createCustomer = async (data, token) => {
     data.email = data.username;
     try {
       const res = await axios.post(

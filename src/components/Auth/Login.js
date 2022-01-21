@@ -8,7 +8,7 @@ const Login = () => {
 
   const [query, setQuery] = useState({
     username: '',
-    password: ''
+    password: '',
   })
   const [submitting, setSubmitting] = useState(false);
   // const [errors, setErrors] = useState({});
@@ -27,7 +27,7 @@ const Login = () => {
     setSubmitting(true);
     try {
       const res = await axios.post('http://localhost:8080/api/auth/signin', query);
-      setAuth({...auth, token: res.data.token});
+      setAuth({...auth, token: res.data.token, role:res.data.roles});
       setSubmitting(false);
       navigate('/Customers');
     } catch (err) {
