@@ -5,6 +5,7 @@ import Home from "../Home/Home";
 import Login from '../Auth/Login';
 import Register from '../Auth/Register';
 import Customers from '../Customers/Customers';
+import Employees from '../Employees/Employees';
 
 const AppRouter = () => {
 
@@ -17,6 +18,7 @@ const AppRouter = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/Customers" element={<Customers />} />
+          <Route path="/Employees" element={<Employees/>} />
         </Routes>
       </div>
     </div>

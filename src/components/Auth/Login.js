@@ -29,7 +29,19 @@ const Login = () => {
       const res = await axios.post('http://localhost:8080/api/auth/signin', query);
       setAuth({...auth, token: res.data.token, role:res.data.roles});
       setSubmitting(false);
-      navigate('/Customers');
+      const userRole=res.data.roles;
+      switch(userRole){
+        case 'CUSTOMER':
+           navigate('/Customers');
+           break;
+        case 'EMPLOYEE':
+        case 'ADMIN':
+          navigate('/Employees');
+          break;
+        default:
+          navigate('/');
+      }
+     
     } catch (err) {
       console.error(err.response.data.message);
       alert(err.response.data.error);
