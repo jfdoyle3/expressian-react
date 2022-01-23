@@ -37,8 +37,11 @@ const NavBar = (props) => {
           padding: '0em 1.2em',
           justifyContent: 'flex-end'
         }}>
-          <NavButton to="/" label="home" />
-          <NavButton to="/Employees" label="Employees" />
+        {auth.role ?(
+        <NavButton to="/" label="home" />
+        )   :
+         (<NavButton to="/Employees" label="Employees" />) }
+        
           {auth.token ? (
             <NavButton to="/Customers" label="Customers" />
 
