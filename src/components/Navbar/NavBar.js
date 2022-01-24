@@ -37,13 +37,20 @@ const NavBar = (props) => {
           padding: '0em 1.2em',
           justifyContent: 'flex-end'
         }}>
-        {auth.role ?(
         <NavButton to="/" label="home" />
+        {auth.role ?(
+         <NavButton to="/Employees" label="Employees" />
         )   :
-         (<NavButton to="/Employees" label="Employees" />) }
-        
+         ( <NavButton to="/Customers" label="Customers" />) }
+                      <NavButton to="/login" label="login" />
+              <NavButton to="/register" label="Sign up" />
+
+
+
+
+{/*         
           {auth.token ? (
-            <NavButton to="/Customers" label="Customers" />
+           
 
           ) : (
             <Fragment>
@@ -51,7 +58,7 @@ const NavBar = (props) => {
               <NavButton to="/register" label="Sign up" />
             </Fragment>
           ) }
-          
+           */}
         </div>
     </nav> 
   )
