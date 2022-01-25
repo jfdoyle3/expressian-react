@@ -38,27 +38,22 @@ const NavBar = (props) => {
           justifyContent: 'flex-end'
         }}>
         <NavButton to="/" label="home" />
-        {auth.role ?(
-         <NavButton to="/Employees" label="Employees" />
-        )   :
-         ( <NavButton to="/Customers" label="Customers" />) }
-                      <NavButton to="/login" label="login" />
-              <NavButton to="/register" label="Sign up" />
+      
+        {auth.token ? (
 
-
-
-
-{/*         
-          {auth.token ? (
-           
-
-          ) : (
-            <Fragment>
-              <NavButton to="/login" label="login" />
-              <NavButton to="/register" label="Sign up" />
-            </Fragment>
-          ) }
-           */}
+          // If function returns results.
+          auth.role ?(
+            
+            <NavButton to="/Employees" label="Employees" />
+          ) : ( 
+            <NavButton to="/Customers" label="Customers" />
+          )
+        ) : (
+          <Fragment>
+           <NavButton to="/login" label="login" />
+           <NavButton to="/register" label="Sign up" />
+          </Fragment>
+        )}     
         </div>
     </nav> 
   )
